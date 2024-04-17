@@ -15,7 +15,7 @@ function App() {
 }
 
 function AppContent() {
-  const host = 'https://questionnare-backend.vercel.app/'
+  const host = 'https://questionnare-backend.vercel.app'
   const [username1, setUsername1] = useState('');
   const [password1, setPassword1] = useState('');
   const [seeLoginPassword, setSeeLoginPassword] = useState(true)
