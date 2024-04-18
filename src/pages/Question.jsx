@@ -8,10 +8,13 @@ const Question = ({ variables }) => {
   const [end, useEnd] = useState('')
   useEffect(()=>{
     const containsFalse = grade.some(grad => grad === false)
+    console.log(containsFalse === false)
     if (containsFalse === false) {
       useEnd('Questionnare is over. Thanks for your valuable time')
+    } else {
+      useEnd('')
     }
-  }, [])
+  }, [grade])
   return (
     <Box sx={{ width: '100vw' }}>
       <Navbar variables={{ question, image, data }}/>

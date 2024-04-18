@@ -16,20 +16,20 @@ const QuestionSection = ({ variables }) => {
   let temp = -1
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ display: 'flex', flexDirection: { sm: 'row', xs: 'column' }, height: '100vh' }}>
+      <Box sx={{ display: 'flex', flexDirection: { sm: 'row', xs: 'column' }, height: 'calc(100vh - 50px)' }}>
         <Box sx={{ width: { sm: '40%', xs: '100vw' }, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'grey' }}>
-          <img src={imageUrl} alt='Image' style={{ width: '80%' }}/>
+          <img src={imageUrl} alt='Image' style={{ width: '90%' }}/>
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '60%', marginTop: '50px' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', flexDirection: { sm: 'row', xs: 'column' }, alignItems: 'center', justifyContent: 'space-between', width: { sm: '60%', xs: '100%' }, marginTop: '50px' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', width: '90vw' }}>
             {question===1 && <Question1 variables={{ question, setQuestion, selectedValue1, handleRadioChange1 }}/>}
             {question===2 && <Question2 variables={{ question, setQuestion, selectedValue2, handleRadioChange2 }}/>}
             {question===3 && <Question3 variables={{ question, setQuestion, selectedValue3, handleRadioChange3 }}/>}
             {question===4 && <Question4 variables={{ question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, handleRadioChange4, updateImage, user, data, setData, setGrade, grade, end, useEnd }}/>}
-            <Box mt={5}>{end}</Box>
+            <Box mt={5} mb={{ xs: 5, sm: 0 }}>{end}</Box>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} mx={3}>
-          <Box>
+          <Box mb={{ xs: 4, sm: 5 }}>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             {/* Box 1 */}
             <Box sx={{ color: image === 0 ? 'black' : 'white', fontWeight: image === 0 ? 700 : 500, background: grade[0] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' }}} onClick={()=>{ setImage(0); setQuestion(1); }}>

@@ -52,7 +52,7 @@ const Question4 = ({ variables }) => {
               console.log("Cannot read 'id' property of undefined imageUrl");
             }
             if (image < data.length - 1) {setQuestion(1); setImage(image + 1); }
-            }} disable={end === 'Questionnare is over. Thanks for your valuable time'}>Submit & Next</Button>
+            }} disable={end === 'Questionnare is over. Thanks for your valuable time'?true:false}>Submit & Next</Button>
         </Box>
     </Box>
   );
