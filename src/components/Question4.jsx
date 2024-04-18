@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Typography, FormControl, FormControlLabel, RadioGroup, Radio, Button } from '@mui/material';
 
 const Question4 = ({ variables }) => {
-  const { question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, handleRadioChange4, updateImage, user, data, setData, setGrade, grade, end } = variables;
+  const { question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, handleRadioChange4, updateImage, user, data, setData, setGrade, grade } = variables;
   const [imageUrl, setImageUrl] = useState(data[image]);
   useEffect(() => {
     if (data[image]) {
@@ -52,7 +52,7 @@ const Question4 = ({ variables }) => {
               console.log("Cannot read 'id' property of undefined imageUrl");
             }
             if (image < data.length - 1) {setQuestion(1); setImage(image + 1); }
-            }} disable={end === 'Questionnare is over. Thanks for your valuable time'?true:false}>Submit & Next</Button>
+            }} >Submit & Next</Button>
         </Box>
     </Box>
   );

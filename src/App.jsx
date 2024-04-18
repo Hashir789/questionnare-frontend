@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box } from '@mui/material';
 import './App.css'
-import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Authenticate from './pages/Authenticate';
 import Question from './pages/Question';
+import { useNavigate } from 'react-router-dom';
+import Temp from './pages/Temp';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
 function AppContent() {
   const host = 'https://questionnare-backend.vercel.app'
+  // const host = 'http://127.0.0.1:8000'
   const [username1, setUsername1] = useState('');
   const [password1, setPassword1] = useState('');
   const [seeLoginPassword, setSeeLoginPassword] = useState(true)
@@ -34,6 +36,15 @@ function AppContent() {
   const [seeSignup, setSeeSignup] = useState(true)
   const [seeSignup2, setSeeSignup2] = useState(true)
   const [grade, setGrade] = useState([])
+  const [sec, setSec] = useState(60)
+  const [response, setResponse] = useState(0)
+  const navigate = useNavigate();
+  useEffect(()=>{
+    if (response === 1)
+    {
+      createImages2();
+    } 
+  }, [response])
   const handleName2 = e =>{
     setName2(e.target.value)
   }
@@ -71,6 +82,9 @@ function AppContent() {
     login({ username: username1, password: password1 })
   };
   const handleSubmit2 = () => {
+    setSec(60)
+    setResponse(0)
+    // navigate('/temp')
     if (password2 === cpassword2) {
       signup({ username: username2, password: password2, first_name: name2 })
     }
@@ -105,7 +119,6 @@ function AppContent() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-
       },
       body: JSON.stringify(obj),
     })
@@ -118,11 +131,9 @@ function AppContent() {
     .then((responseData) => {
       console.log(responseData)
       if (responseData.token) {
-        setData(responseData.images)
-        const grades = responseData.images.map(item => item.grade);
-        setGrade(grades)
-        setLoginSuccess(true);
+        setLogin(true)
         setUser(responseData.user);
+        setResponse(1)
       }
     })
     .catch((error) => {
@@ -144,6 +155,7 @@ function AppContent() {
       return response.json();
     })
     .then((responseData) => {
+      console.log(responseData)
       setData(responseData)
       const grades = responseData.map(item => item.grade);
       setGrade(grades)
@@ -168,16 +180,45 @@ function AppContent() {
     })
     .then((responseData) => {
       console.log(responseData)
+      navigate('/')
     })
     .catch((error) => {
       console.log(error)
     });
   };
+  const createImages = (obj) => {
+    fetch(`${host}/createImage/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(obj),
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((responseData) => {
+      setSec(60)
+      setResponse(0)
+      setUser({})
+      // navigate('/')
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  };
+  const createImages2 = () =>{
+        createImages({ user: user.id })
+  }
   return (
     <Box sx={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Routes>
-        <Route path="/" element={<Authenticate variables={{ username1, password1, seeLoginPassword, setSeeLoginPassword, handleUsernameChange1, handlePasswordChange1, handleSubmit1, loginSuccess, loginn, setLogin, handleName2, handleUsername2, handlePassword2, handleCpassword2, name2, username2, password2, cpassword2, seeSignup, setSeeSignup, seeSignup2, setSeeSignup2, handleSubmit2 }} />} />
+        {response===0?<Route path="/" element={<Authenticate variables={{ username1, password1, seeLoginPassword, setSeeLoginPassword, handleUsernameChange1, handlePasswordChange1, handleSubmit1, loginSuccess, loginn, setLogin, handleName2, handleUsername2, handlePassword2, handleCpassword2, name2, username2, password2, cpassword2, seeSignup, setSeeSignup, seeSignup2, setSeeSignup2, handleSubmit2 }} />} />:<Route path="/" element={<Temp variables={{ sec, setSec }}/>} />}
         <Route path="/questionnare" element={<Question variables={{ question, setQuestion, image, setImage, data, tempData, setTempData, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, updateImage, user, setData, grade, setGrade }}/>} />
+        {/* <Route path="/temp" element={<Temp variables={{ sec, setSec }}/>} /> */}
       </Routes>
     </Box>
   );

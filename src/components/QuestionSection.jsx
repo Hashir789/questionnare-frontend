@@ -6,18 +6,17 @@ import Question3 from './Question3';
 import Question4 from './Question4';
 
 const QuestionSection = ({ variables }) => {
-  const { question, setQuestion, image, setImage, data, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, updateImage, user, setData, grade, setGrade, end, useEnd } = variables;
+  const { question, setQuestion, image, setImage, data, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, updateImage, user, setData, grade, setGrade } = variables;
   const [imageUrl, setImageUrl] = useState('');
   useEffect(() => {
     if (data[image]) {
       setImageUrl(data[image].urll);
     }
   }, [image, data]);
-  let temp = -1
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ display: 'flex', flexDirection: { sm: 'row', xs: 'column' }, height: 'calc(100vh - 50px)' }}>
-        <Box sx={{ width: { sm: '40%', xs: '100vw' }, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'grey' }}>
+        <Box sx={{ width: { sm: '40%', xs: '100vw' }, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img src={imageUrl} alt='Image' style={{ width: '90%' }}/>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: { sm: 'row', xs: 'column' }, alignItems: 'center', justifyContent: 'space-between', width: { sm: '60%', xs: '100%' }, marginTop: '50px' }}>
@@ -25,8 +24,7 @@ const QuestionSection = ({ variables }) => {
             {question===1 && <Question1 variables={{ question, setQuestion, selectedValue1, handleRadioChange1 }}/>}
             {question===2 && <Question2 variables={{ question, setQuestion, selectedValue2, handleRadioChange2 }}/>}
             {question===3 && <Question3 variables={{ question, setQuestion, selectedValue3, handleRadioChange3 }}/>}
-            {question===4 && <Question4 variables={{ question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, handleRadioChange4, updateImage, user, data, setData, setGrade, grade, end, useEnd }}/>}
-            <Box mt={5} mb={{ xs: 5, sm: 0 }}>{end}</Box>
+            {question===4 && <Question4 variables={{ question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, handleRadioChange4, updateImage, user, data, setData, setGrade, grade }}/>}
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} mx={3}>
           <Box mb={{ xs: 4, sm: 5 }}>
