@@ -16,9 +16,9 @@ const QuestionSection = ({ variables }) => {
   let temp = -1
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'row', height: '100vh' }}>
-        <Box sx={{ width: '40%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <img src={imageUrl} alt='Image'/>
+      <Box sx={{ display: 'flex', flexDirection: { sm: 'row', xs: 'column' }, height: '100vh' }}>
+        <Box sx={{ width: { sm: '40%', xs: '100vw' }, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'grey' }}>
+          <img src={imageUrl} alt='Image' style={{ width: '80%' }}/>
         </Box>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '60%', marginTop: '50px' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', flexDirection: 'column' }}>

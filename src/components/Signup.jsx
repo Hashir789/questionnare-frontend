@@ -6,7 +6,7 @@ const Signup = ({ variables }) => {
   const { setLogin, handleName2, handleUsername2, handlePassword2, handleCpassword2, name2, username2, password2, cpassword2, seeSignup, setSeeSignup, seeSignup2, setSeeSignup2, handleSubmit2 } = variables;
   return (
     <Box>
-        <Card sx={{ boxShadow: '0px 0px 20px 0px rgba(0,0,0,0.75)', width: '500px' }}>
+        <Card sx={{ boxShadow: '0px 0px 20px 0px rgba(0,0,0,0.75)', width: { sm: '500px', xs: '90vw' } }}>
             <CardContent>
               <Box my={3}>
                 <TextField id="name2" label="Name" variant="standard" fullWidth value={name2} onChange={handleName2} InputProps={{startAdornment: (<InputAdornment position="start"><FaUser size={18}/></InputAdornment>)}}/>
