@@ -30,7 +30,6 @@ const Question4 = ({ variables }) => {
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>            
             <Button variant='contained' onClick={()=>{ setQuestion(question-1); }}>Previous</Button>
             <Button variant='contained' onClick={()=>{ if (imageUrl && imageUrl.id) {
-              console.log(imageUrl.id);
               const id = imageUrl.id;
               const obj = { 
                 id: id, 
@@ -46,10 +45,7 @@ const Question4 = ({ variables }) => {
               }
               updateImage(obj);
               setData([...data.slice(0, image), obj, ...data.slice(image+1)]);
-              console.log([...grade.slice(0, image), true, ...grade.slice(image+1)])
               setGrade([...grade.slice(0, image), true, ...grade.slice(image+1)]) 
-            } else {
-              console.log("Cannot read 'id' property of undefined imageUrl");
             }
             if (image < data.length - 1) {setQuestion(1); setImage(image + 1); }
             }} >Submit & Next</Button>

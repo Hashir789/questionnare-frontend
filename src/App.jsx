@@ -84,7 +84,6 @@ function AppContent() {
   const handleSubmit2 = () => {
     setSec(60)
     setResponse(0)
-    // navigate('/temp')
     if (password2 === cpassword2) {
       signup({ username: username2, password: password2, first_name: name2 })
     }
@@ -129,7 +128,6 @@ function AppContent() {
       return response.json();
     })
     .then((responseData) => {
-      console.log(responseData)
       if (responseData.token) {
         setLogin(true)
         setUser(responseData.user);
@@ -155,7 +153,6 @@ function AppContent() {
       return response.json();
     })
     .then((responseData) => {
-      console.log(responseData)
       setData(responseData)
       const grades = responseData.map(item => item.grade);
       setGrade(grades)
@@ -179,8 +176,6 @@ function AppContent() {
       return response.json();
     })
     .then((responseData) => {
-      console.log(responseData)
-      navigate('/')
     })
     .catch((error) => {
       console.log(error)
