@@ -37,6 +37,8 @@ function AppContent() {
   const [grade, setGrade] = useState([])
   const [sec, setSec] = useState(60)
   const [response, setResponse] = useState(0)
+  const [open, setOpen] = useState(false)
+  const [alertStatement, setAlertStatement] = useState('')
   useEffect(()=>{
     if (response === 1)
     {
@@ -84,13 +86,37 @@ function AppContent() {
     if ( username1==='gennotate' || password1==='gennotate123456' ) {
       stats();
     } else {
-      login({ username: username1, password: password1 })
+      if (username1.length < 5 || username1.length > 40) {
+        setAlertStatement('Wrong username or password. Please try again!')
+        setOpen(true)
+      } else if (password1.length < 8) {
+        setAlertStatement('Wrong username or password. Please try again!')
+        setOpen(true)
+      } else {
+        setAlertStatement('Loading...')
+        setOpen(true)
+        login({ username: username1, password: password1 })
+      }
     }
   };
   const handleSubmit2 = () => {
-    setSec(60)
-    setResponse(0)
-    if (password2 === cpassword2) {
+    if (name2.length < 5 || name2.length > 40) {
+      setAlertStatement('Name must have atleast 5 and atmost 40 characters')
+      setOpen(true)
+    } else if (username2.length < 5 || username2.length > 40) {
+      setAlertStatement('Username must have atleast 5 and atmost 40 characters')
+      setOpen(true)
+    } else if (password2.length < 8) {
+      setAlertStatement('Password must contain atleast 8 characters')
+      setOpen(true)
+    } else if (password2.length !== cpassword2.length) {
+      setAlertStatement("Password didn't match")
+      setOpen(true)
+    } else {
+      setAlertStatement('Loading...')
+      setOpen(true)
+      setSec(60)
+      setResponse(0)
       signup({ username: username2, password: password2, first_name: name2 })
     }
   };
@@ -134,10 +160,14 @@ function AppContent() {
         setLoginSuccess(true);
         userImages({ user_id: responseData.user.id })
         setUser(responseData.user);
+        setAlertStatement('')
+        setOpen(false)
       }
     })
     .catch((error) => {
       console.log(error)
+      setAlertStatement('Wrong username or password. Please try again!')
+      setOpen(true)
     });
   };
   const signup = (obj) => {
@@ -159,10 +189,14 @@ function AppContent() {
         setLogin(true)
         setUser(responseData.user);
         setResponse(1)
+        setAlertStatement('')
+        setOpen(false)
       }
     })
     .catch((error) => {
       console.log(error)
+      setAlertStatement('User with this username already exists. Kindly change the username.')
+      setOpen(true)
     });
   };
   const userImages = (obj) => {
@@ -237,7 +271,7 @@ function AppContent() {
   return (
     <Box sx={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Routes>
-        {response===0?<Route path="/" element={<Authenticate variables={{ username1, password1, seeLoginPassword, setSeeLoginPassword, handleUsernameChange1, handlePasswordChange1, handleSubmit1, loginSuccess, loginn, setLogin, handleName2, handleUsername2, handlePassword2, handleCpassword2, name2, username2, password2, cpassword2, seeSignup, setSeeSignup, seeSignup2, setSeeSignup2, handleSubmit2 }} />} />:<Route path="/" element={<Temp variables={{ sec, setSec }}/>} />}
+        {response===0?<Route path="/" element={<Authenticate variables={{ username1, password1, seeLoginPassword, setSeeLoginPassword, handleUsernameChange1, handlePasswordChange1, handleSubmit1, loginSuccess, loginn, setLogin, handleName2, handleUsername2, handlePassword2, handleCpassword2, name2, username2, password2, cpassword2, seeSignup, setSeeSignup, seeSignup2, setSeeSignup2, handleSubmit2, open, setOpen, alertStatement, setAlertStatement }} />} />:<Route path="/" element={<Temp variables={{ sec, setSec }}/>} />}
         <Route path="/questionnare" element={<Question variables={{ question, setQuestion, image, setImage, data, tempData, setTempData, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, updateImage, user, setData, grade, setGrade, selectedValue5, handleRadioChange5 }}/>} />
       </Routes>
     </Box>
