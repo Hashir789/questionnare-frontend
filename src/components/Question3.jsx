@@ -5,7 +5,7 @@ const Question3 = ({ variables }) => {
   const { question, setQuestion, selectedValue3, handleRadioChange3 } = variables
   return (
     <Box sx={{ width: '100%' }} my={1} mx={2}>
-        <Typography textAlign='justify'>All of the retinal layers are clearly visible and portray sufficient details required to analyze the disease.</Typography>
+        <Typography textAlign='justify'>There are no visual disturbances or abnormalities in the retinal OCT images, such as noise, blurring, or inconsistencies in layers, that may indicate the presence of artifacts.</Typography>
         <Box my={2}>
             <FormControl>
                 <RadioGroup

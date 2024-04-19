@@ -5,7 +5,7 @@ const Question1 = ({ variables }) => {
   const { question, setQuestion, selectedValue1, handleRadioChange1 } = variables
   return (
     <Box sx={{ width: '100%' }} my={1} mx={2}>
-        <Typography textAlign='justify'>The brightness and contrast of the image being displayed is sufficient to visualise medical details and bio-marks associated with the diseases.</Typography>
+        <Typography textAlign='justify'>Depicted image is a high resolution image.</Typography>
         <Box my={2}>
             <FormControl>
                 <RadioGroup
