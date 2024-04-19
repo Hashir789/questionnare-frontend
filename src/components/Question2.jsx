@@ -5,7 +5,7 @@ const Question2 = ({ variables }) => {
   const { question, setQuestion, selectedValue2, handleRadioChange2 } = variables
   return (
     <Box sx={{ width: '100%' }} my={1} mx={2}>
-        <Typography textAlign='justify'>Do you notice any visual disturbances or abnormalities in the retinal OCT images, such as noise, blurring, or inconsistencies in layers, that may indicate the presence of artifacts?</Typography>
+        <Typography textAlign='justify'>There are no visual disturbances or abnormalities in the retinal OCT images, such as noise, blurring, or inconsistencies in layers, that may indicate the presence of artifacts.</Typography>
         <Box my={2}>
             <FormControl>
                 <RadioGroup
@@ -14,8 +14,9 @@ const Question2 = ({ variables }) => {
                 onChange={handleRadioChange2}
                 name="radio-buttons-group"
                 >
-                    <FormControlLabel value={1} control={<Radio />} label="Yes" />
-                    <FormControlLabel value={2} control={<Radio />} label="No" />
+                    <FormControlLabel value={1} control={<Radio />} label="Agree" />
+                    <FormControlLabel value={2} control={<Radio />} label="Neither agree nor disagree" />
+                    <FormControlLabel value={3} control={<Radio />} label="Disagree" />
                 </RadioGroup>
             </FormControl>
         </Box>

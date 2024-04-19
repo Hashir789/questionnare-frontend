@@ -4,7 +4,6 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Authenticate from './pages/Authenticate';
 import Question from './pages/Question';
-import { useNavigate } from 'react-router-dom';
 import Temp from './pages/Temp';
 
 function App() {
@@ -16,8 +15,8 @@ function App() {
 }
 
 function AppContent() {
-  const host = 'https://questionnare-backend.vercel.app'
-  // const host = 'http://127.0.0.1:8000'
+  // const host = 'https://questionnare-backend.vercel.app'
+  const host = 'http://127.0.0.1:8000'
   const [username1, setUsername1] = useState('');
   const [password1, setPassword1] = useState('');
   const [seeLoginPassword, setSeeLoginPassword] = useState(true)
@@ -38,7 +37,6 @@ function AppContent() {
   const [grade, setGrade] = useState([])
   const [sec, setSec] = useState(60)
   const [response, setResponse] = useState(0)
-  const navigate = useNavigate();
   useEffect(()=>{
     if (response === 1)
     {
@@ -72,6 +70,10 @@ function AppContent() {
   const handleRadioChange4 = (event) => {
     setSelectedValue4(event.target.value);
   };
+  const [selectedValue5, setSelectedValue5] = useState(1);
+  const handleRadioChange5 = (event) => {
+    setSelectedValue5(event.target.value);
+  };
   const handleUsernameChange1 = (event) => {
     setUsername1(event.target.value);
   };
@@ -79,7 +81,11 @@ function AppContent() {
     setPassword1(event.target.value);
   };
   const handleSubmit1 = () => {
-    login({ username: username1, password: password1 })
+    if ( username1==='gennotate' || password1==='gennotate123456' ) {
+      stats();
+    } else {
+      login({ username: username1, password: password1 })
+    }
   };
   const handleSubmit2 = () => {
     setSec(60)
@@ -87,6 +93,27 @@ function AppContent() {
     if (password2 === cpassword2) {
       signup({ username: username2, password: password2, first_name: name2 })
     }
+  };
+  const stats = () => {
+    fetch(`${host}/stats/`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // body: JSON.stringify(obj),
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((responseData) => {
+      console.log(responseData)
+    })
+    .catch((error) => {
+      console.log(error)
+    });
   };
   const login = (obj) => {
     fetch(`${host}/api/login/`, {
@@ -199,7 +226,6 @@ function AppContent() {
       setSec(60)
       setResponse(0)
       setUser({})
-      // navigate('/')
     })
     .catch((error) => {
       console.log(error)
@@ -212,8 +238,7 @@ function AppContent() {
     <Box sx={{ width: '100vw', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Routes>
         {response===0?<Route path="/" element={<Authenticate variables={{ username1, password1, seeLoginPassword, setSeeLoginPassword, handleUsernameChange1, handlePasswordChange1, handleSubmit1, loginSuccess, loginn, setLogin, handleName2, handleUsername2, handlePassword2, handleCpassword2, name2, username2, password2, cpassword2, seeSignup, setSeeSignup, seeSignup2, setSeeSignup2, handleSubmit2 }} />} />:<Route path="/" element={<Temp variables={{ sec, setSec }}/>} />}
-        <Route path="/questionnare" element={<Question variables={{ question, setQuestion, image, setImage, data, tempData, setTempData, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, updateImage, user, setData, grade, setGrade }}/>} />
-        {/* <Route path="/temp" element={<Temp variables={{ sec, setSec }}/>} /> */}
+        <Route path="/questionnare" element={<Question variables={{ question, setQuestion, image, setImage, data, tempData, setTempData, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, updateImage, user, setData, grade, setGrade, selectedValue5, handleRadioChange5 }}/>} />
       </Routes>
     </Box>
   );

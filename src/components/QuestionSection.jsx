@@ -4,9 +4,10 @@ import Question1 from './Question1';
 import Question2 from './Question2';
 import Question3 from './Question3';
 import Question4 from './Question4';
+import Question5 from './Question5';
 
 const QuestionSection = ({ variables }) => {
-  const { question, setQuestion, image, setImage, data, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, updateImage, user, setData, grade, setGrade } = variables;
+  const { question, setQuestion, image, setImage, data, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, selectedValue5, handleRadioChange5, updateImage, user, setData, grade, setGrade } = variables;
   const [imageUrl, setImageUrl] = useState('');
   useEffect(() => {
     if (data[image]) {
@@ -24,7 +25,8 @@ const QuestionSection = ({ variables }) => {
             {question===1 && <Question1 variables={{ question, setQuestion, selectedValue1, handleRadioChange1 }}/>}
             {question===2 && <Question2 variables={{ question, setQuestion, selectedValue2, handleRadioChange2 }}/>}
             {question===3 && <Question3 variables={{ question, setQuestion, selectedValue3, handleRadioChange3 }}/>}
-            {question===4 && <Question4 variables={{ question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, handleRadioChange4, updateImage, user, data, setData, setGrade, grade }}/>}
+            {question===4 && <Question5 variables={{ question, setQuestion, selectedValue5, handleRadioChange5 }}/>}
+            {question===5 && <Question4 variables={{ question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, selectedValue5, handleRadioChange4, updateImage, user, data, setData, setGrade, grade }}/>}
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} mx={3}>
           <Box mb={{ xs: 4, sm: 5 }}>

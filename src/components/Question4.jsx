@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Typography, FormControl, FormControlLabel, RadioGroup, Radio, Button } from '@mui/material';
 
 const Question4 = ({ variables }) => {
-  const { question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, handleRadioChange4, updateImage, user, data, setData, setGrade, grade } = variables;
+  const { question, setQuestion, image, setImage, selectedValue1, selectedValue2, selectedValue3, selectedValue4, selectedValue5, handleRadioChange4, updateImage, user, data, setData, setGrade, grade } = variables;
   const [imageUrl, setImageUrl] = useState(data[image]);
   useEffect(() => {
     if (data[image]) {
@@ -24,6 +24,7 @@ const Question4 = ({ variables }) => {
                     <FormControlLabel value={2} control={<Radio />} label="CNV" />
                     <FormControlLabel value={3} control={<Radio />} label="DME" />
                     <FormControlLabel value={4} control={<Radio />} label="Drusen" />
+                    <FormControlLabel value={5} control={<Radio />} label="None of them" />
                 </RadioGroup>
             </FormControl>
         </Box>
@@ -40,7 +41,8 @@ const Question4 = ({ variables }) => {
                 question1: parseInt(selectedValue1), 
                 question2: parseInt(selectedValue2), 
                 question3: parseInt(selectedValue3), 
-                question4: parseInt(selectedValue4),
+                question4: parseInt(selectedValue5),
+                question5: parseInt(selectedValue4),
                 grade: 1
               }
               updateImage(obj);

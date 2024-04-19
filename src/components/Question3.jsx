@@ -5,7 +5,7 @@ const Question3 = ({ variables }) => {
   const { question, setQuestion, selectedValue3, handleRadioChange3 } = variables
   return (
     <Box sx={{ width: '100%' }} my={1} mx={2}>
-        <Typography textAlign='justify'>Visibility and integrity of retinal layers?</Typography>
+        <Typography textAlign='justify'>All of the retinal layers are clearly visible and portray sufficient details required to analyze the disease.</Typography>
         <Box my={2}>
             <FormControl>
                 <RadioGroup
@@ -14,11 +14,9 @@ const Question3 = ({ variables }) => {
                 onChange={handleRadioChange3}
                 name="radio-buttons-group"
                 >
-                    <FormControlLabel value={1} control={<Radio />} label="1" />
-                    <FormControlLabel value={2} control={<Radio />} label="2" />
-                    <FormControlLabel value={3} control={<Radio />} label="3" />
-                    <FormControlLabel value={4} control={<Radio />} label="4" />
-                    <FormControlLabel value={5} control={<Radio />} label="5" />
+                    <FormControlLabel value={1} control={<Radio />} label="Agree" />
+                    <FormControlLabel value={2} control={<Radio />} label="Neither agree nor disagree" />
+                    <FormControlLabel value={3} control={<Radio />} label="Disagree" />
                 </RadioGroup>
             </FormControl>
         </Box>
