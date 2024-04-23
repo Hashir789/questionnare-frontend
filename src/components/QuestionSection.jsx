@@ -365,7 +365,90 @@ const QuestionSection = ({ variables }) => {
       {80}
     </Box>
   </Box>
-
+  <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+    {/* Box 70 */}
+    <Box sx={{ color: image === 80 ? 'black' : 'white', fontWeight: image === 80 ? 700 : 500, background: grade[80] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(80); setQuestion(1); }}>
+      {81}
+    </Box>
+    {/* Box 71 */}
+    <Box sx={{ color: image === 81 ? 'black' : 'white', fontWeight: image === 81 ? 700 : 500, background: grade[81] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(81); setQuestion(1); }}>
+      {82}
+    </Box>
+    {/* Box 72 */}
+    <Box sx={{ color: image === 82 ? 'black' : 'white', fontWeight: image === 82 ? 700 : 500, background: grade[82] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(82); setQuestion(1); }}>
+      {83}
+    </Box>
+    {/* Box 73 */}
+    <Box sx={{ color: image === 83 ? 'black' : 'white', fontWeight: image === 83 ? 700 : 500, background: grade[83] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(83); setQuestion(1); }}>
+      {84}
+    </Box>
+    {/* Box 74 */}
+    <Box sx={{ color: image === 84 ? 'black' : 'white', fontWeight: image === 84 ? 700 : 500, background: grade[84] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(84); setQuestion(1); }}>
+      {85}
+    </Box>
+    {/* Box 75 */}
+    <Box sx={{ color: image === 85 ? 'black' : 'white', fontWeight: image === 85 ? 700 : 500, background: grade[85] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(85); setQuestion(1); }}>
+      {86}
+    </Box>
+    {/* Box 76 */}
+    <Box sx={{ color: image === 86 ? 'black' : 'white', fontWeight: image === 86 ? 700 : 500, background: grade[86] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(86); setQuestion(1); }}>
+      {87}
+    </Box>
+    {/* Box 77 */}
+    <Box sx={{ color: image === 87 ? 'black' : 'white', fontWeight: image === 87 ? 700 : 500, background: grade[87] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(87); setQuestion(1); }}>
+      {88}
+    </Box>
+    {/* Box 78 */}
+    <Box sx={{ color: image === 88 ? 'black' : 'white', fontWeight: image === 88 ? 700 : 500, background: grade[88] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(88); setQuestion(1); }}>
+      {89}
+    </Box>
+    {/* Box 79 */}
+    <Box sx={{ color: image === 89 ? 'black' : 'white', fontWeight: image === 89 ? 700 : 500, background: grade[89] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(89); setQuestion(1); }}>
+      {90}
+    </Box>
+  </Box>
+  <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+    {/* Box 70 */}
+    <Box sx={{ color: image === 90 ? 'black' : 'white', fontWeight: image === 90 ? 700 : 500, background: grade[90] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(90); setQuestion(1); }}>
+      {91}
+    </Box>
+    {/* Box 71 */}
+    <Box sx={{ color: image === 91 ? 'black' : 'white', fontWeight: image === 91 ? 700 : 500, background: grade[91] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(91); setQuestion(1); }}>
+      {92}
+    </Box>
+    {/* Box 72 */}
+    <Box sx={{ color: image === 92 ? 'black' : 'white', fontWeight: image === 92 ? 700 : 500, background: grade[92] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(92); setQuestion(1); }}>
+      {93}
+    </Box>
+    {/* Box 73 */}
+    <Box sx={{ color: image === 93 ? 'black' : 'white', fontWeight: image === 93 ? 700 : 500, background: grade[93] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(93); setQuestion(1); }}>
+      {94}
+    </Box>
+    {/* Box 74 */}
+    <Box sx={{ color: image === 94 ? 'black' : 'white', fontWeight: image === 94 ? 700 : 500, background: grade[94] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(94); setQuestion(1); }}>
+      {95}
+    </Box>
+    {/* Box 75 */}
+    <Box sx={{ color: image === 95 ? 'black' : 'white', fontWeight: image === 95 ? 700 : 500, background: grade[95] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(95); setQuestion(1); }}>
+      {96}
+    </Box>
+    {/* Box 76 */}
+    <Box sx={{ color: image === 96 ? 'black' : 'white', fontWeight: image === 96 ? 700 : 500, background: grade[96] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(96); setQuestion(1); }}>
+      {97}
+    </Box>
+    {/* Box 77 */}
+    <Box sx={{ color: image === 97 ? 'black' : 'white', fontWeight: image === 97 ? 700 : 500, background: grade[97] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(97); setQuestion(1); }}>
+      {98}
+    </Box>
+    {/* Box 78 */}
+    <Box sx={{ color: image === 98 ? 'black' : 'white', fontWeight: image === 98 ? 700 : 500, background: grade[98] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(98); setQuestion(1); }}>
+      {99}
+    </Box>
+    {/* Box 79 */}
+    <Box sx={{ color: image === 99 ? 'black' : 'white', fontWeight: image === 99 ? 700 : 500, background: grade[99] === true ? '#1976d2' : 'rgba(25, 118, 210, 0.6)', margin: '2px', width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', '&:hover': { cursor: 'pointer' } }} onClick={()=>{ setImage(99); setQuestion(1); }}>
+      {100}
+    </Box>
+  </Box>
           </Box>
           </Box>
         </Box>

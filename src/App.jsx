@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Authenticate from './pages/Authenticate';
@@ -15,8 +15,8 @@ function App() {
 }
 
 function AppContent() {
-  const host = 'https://questionnare-backend.vercel.app'
-  // const host = 'http://127.0.0.1:8000'
+  // const host = 'https://questionnare-backend.vercel.app'
+  const host = 'http://127.0.0.1:8000'
   const [username1, setUsername1] = useState('');
   const [password1, setPassword1] = useState('');
   const [seeLoginPassword, setSeeLoginPassword] = useState(true)
@@ -265,6 +265,38 @@ function AppContent() {
       console.log(error)
     });
   };
+  const printCSV = () => {
+    fetch(`${host}/printCSV/`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'text/csv',
+      },
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // Get the response as a binary blob
+      // return response.blob(); // Get the response as a binary blob
+    })
+    .then((responseData) => {
+      console.log(responseData)
+      // // Create a temporary URL for the blob
+      // const url = window.URL.createObjectURL(blob);
+      // // Create a link element to trigger the download
+      // const a = document.createElement('a');
+      // a.href = url;
+      // a.download = 'image_quality.csv';
+      // // Trigger the download by clicking the link
+      // document.body.appendChild(a);
+      // a.click();
+      // // Clean up by revoking the URL
+      // window.URL.revokeObjectURL(url);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };  
   const createImages2 = () =>{
         createImages({ user: user.id })
   }
@@ -274,6 +306,7 @@ function AppContent() {
         {response===0?<Route path="/" element={<Authenticate variables={{ username1, password1, seeLoginPassword, setSeeLoginPassword, handleUsernameChange1, handlePasswordChange1, handleSubmit1, loginSuccess, loginn, setLogin, handleName2, handleUsername2, handlePassword2, handleCpassword2, name2, username2, password2, cpassword2, seeSignup, setSeeSignup, seeSignup2, setSeeSignup2, handleSubmit2, open, setOpen, alertStatement, setAlertStatement }} />} />:<Route path="/" element={<Temp variables={{ sec, setSec }}/>} />}
         <Route path="/questionnare" element={<Question variables={{ question, setQuestion, image, setImage, data, tempData, setTempData, selectedValue1, handleRadioChange1, selectedValue2, handleRadioChange2, selectedValue3, handleRadioChange3, selectedValue4, handleRadioChange4, updateImage, user, setData, grade, setGrade, selectedValue5, handleRadioChange5 }}/>} />
       </Routes>
+      {/* <Button onClick={()=>{ console.log('object'); printCSV();}}>Print CSV</Button> */}
     </Box>
   );
 }

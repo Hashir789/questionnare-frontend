@@ -22,9 +22,8 @@ const Question4 = ({ variables }) => {
                 >
                     <FormControlLabel value={1} control={<Radio />} label="Normal" />
                     <FormControlLabel value={2} control={<Radio />} label="CNV" />
-                    <FormControlLabel value={3} control={<Radio />} label="DME" />
-                    <FormControlLabel value={4} control={<Radio />} label="Drusen" />
-                    <FormControlLabel value={5} control={<Radio />} label="None of them" />
+                    <FormControlLabel value={3} control={<Radio />} label="Drusen" />
+                    <FormControlLabel value={4} control={<Radio />} label="None of them" />
                 </RadioGroup>
             </FormControl>
         </Box>
